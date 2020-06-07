@@ -69,6 +69,7 @@ var DomOutline = function (options) {
     }
 
     function removeOutlineElements() {
+        self.active = false;
         jQuery.each(self.elements, function(name, element) {
             element.remove();
         });
@@ -157,7 +158,6 @@ var DomOutline = function (options) {
     };
 
     pub.stop = function () {
-        self.active = false;
         removeOutlineElements();
         jQuery('body').off('mousemove.' + self.opts.namespace)
             .off('keyup.' + self.opts.namespace)
