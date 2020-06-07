@@ -15,6 +15,7 @@ var DomOutline = function (options) {
     options = options || {};
 
     var pub = {};
+    var stats = false;
     var self = {
         opts: {
             namespace: options.namespace || 'DomOutline',
@@ -165,12 +166,15 @@ var DomOutline = function (options) {
     };
 
     pub.stop = function () {
-        self.active = false;
         removeOutlineElements();
         jQuery('body').off('mousemove.' + self.opts.namespace)
             .off('keyup.' + self.opts.namespace)
             .off('click.' + self.opts.namespace);
     };
+
+    pub.status = function(){
+        if (self.active) return true;
+    }
 
     return pub;
 };
