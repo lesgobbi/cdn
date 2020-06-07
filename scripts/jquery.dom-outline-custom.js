@@ -69,7 +69,6 @@ var DomOutline = function (options) {
     }
 
     function removeOutlineElements() {
-        self.active = false;
         jQuery.each(self.elements, function(name, element) {
             element.remove();
         });
@@ -131,7 +130,7 @@ var DomOutline = function (options) {
     function clickHandler(e) {
         pub.stop();
         self.opts.onClick(pub.element);
-
+        e.originalEvent.preventDefault(true)
         return false;
     }
 
@@ -163,10 +162,6 @@ var DomOutline = function (options) {
             .off('keyup.' + self.opts.namespace)
             .off('click.' + self.opts.namespace);
     };
-
-    pub.status = function(){
-        if (self.active) return true;
-    }
 
     return pub;
 };
