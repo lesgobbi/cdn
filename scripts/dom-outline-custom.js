@@ -1,15 +1,7 @@
 /**
  * Firebug/Web Inspector Outline Implementation using jQuery
- * Tested to work in Chrome, FF, Safari. Buggy in IE ;(
  * Andrew Childs <ac@glomerate.com>
- *
- * Example Setup:
- * var myClickHandler = function (element) { console.log('Clicked element:', element); }
- * var myDomOutline = DomOutline({ onClick: myClickHandler, filter: '.debug' });
- *
- * Public API:
- * myDomOutline.start();
- * myDomOutline.stop();
+ * custom by Jean Reis
  */
 var DomOutline = function (options) {
     options = options || {};
